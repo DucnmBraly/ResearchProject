@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PhenakistoscopeView">
+        <attr name="frameCount" format="integer" />
+        <attr name="animationSpeed" format="float" />
+        <attr name="slitWidth" format="float" />
+    </declare-styleable>
+</resources>
