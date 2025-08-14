@@ -73,6 +73,19 @@ class PhenakistoscopeView @JvmOverloads constructor(
         this.rotateStep = 360f / frameCount
     }
 
+    fun updateRotateDirection(rotateDirection: RotateDirection) {
+        this.rotateDirection = rotateDirection
+    }
+
+    fun increaseDelay(delayMs: Long) {
+        this.delayMs += delayMs
+    }
+
+    fun decreaseDelay(delayMs: Long) {
+        if (delayMs > this.delayMs) return
+        this.delayMs -= delayMs
+    }
+
     fun animateStep() {
         if (isAnimating) return
         isAnimating = true

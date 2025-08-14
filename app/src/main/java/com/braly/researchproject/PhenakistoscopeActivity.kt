@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import com.braly.researchproject.databinding.ActivityPhenakistoBinding
 
 class PhenakistoscopeActivity : AppCompatActivity() {
@@ -28,21 +29,40 @@ class PhenakistoscopeActivity : AppCompatActivity() {
         binding.root.setOnTouchListener { v, event ->
             return@setOnTouchListener true
         }
+
+        binding.btnClockwise.setOnClickListener {
+            binding.phenakistoView.updateRotateDirection(RotateDirection.CLOCKWISE)
+        }
+
+        binding.btnCounterClockwise.setOnClickListener {
+            binding.phenakistoView.updateRotateDirection(RotateDirection.COUNTER_CLOCKWISE)
+        }
+
+        binding.btnStart.setOnClickListener {
+            binding.ivPreview.isVisible = false
+            binding.phenakistoView.animateStep()
+        }
+
+        binding.btnUp.setOnClickListener {
+            binding.phenakistoView.decreaseDelay(20L)
+        }
+
+        binding.btnDown.setOnClickListener {
+            binding.phenakistoView.increaseDelay(20L)
+        }
+
         test()
-
-
     }
 
     private fun test() {
         preloadImage(R.drawable.test5, context = this, onResourceReady = { bitmap ->
-            binding.spinning3DView.post {
+            binding.phenakistoView.post {
                 val bitmapNe = bitmap.toBitmap()
                 val frameCount = 16
-                binding.spinning3DView.setPhenakistoScopeImage(
+                binding.phenakistoView.setPhenakistoScopeImage(
                     bitmap = bitmapNe,
                     frameCount = frameCount
                 )
-                binding.spinning3DView.animateStep()
             }
         })
 

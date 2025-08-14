@@ -6,10 +6,64 @@
     android:layout_height="match_parent">
 
     <com.braly.researchproject.PhenakistoscopeView
-        android:id="@+id/spinning3DView"
+        android:id="@+id/phenakisto_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_preview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/test5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_clockwise"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_clockwise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clockwise"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_counter_clockwise"
+        app:layout_constraintStart_toEndOf="@+id/btn_start" />
+
+    <Button
+        android:id="@+id/btn_counter_clockwise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CounterClockwise"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_clockwise" />
+
+    <Button
+        android:id="@+id/btn_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Up"
+        app:layout_constraintBottom_toTopOf="@id/btn_clockwise"
+        app:layout_constraintEnd_toStartOf="@+id/btn_counter_clockwise"
+        app:layout_constraintStart_toEndOf="@+id/btn_start" />
+
+    <Button
+        android:id="@+id/btn_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Down"
+        app:layout_constraintBottom_toTopOf="@id/btn_clockwise"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_clockwise" />
 </androidx.constraintlayout.widget.ConstraintLayout>
